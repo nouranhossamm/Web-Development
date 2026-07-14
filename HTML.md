@@ -1,31 +1,76 @@
-# Introduction to HTML ###
-
+# Introduction to HTML
 ### Hypertext Markup Language
 
 **By: Nouran Hosam**
 
-## What HTML consists of
+---
 
-HTML consists of elements that work together to create a web page.
+## Table of Contents
 
-### HTML Elements
+1. [What HTML Is](#1-what-html-is)
+2. [HTML Elements](#2-html-elements)
+3. [Document Structure](#3-document-structure)
+4. [Text-Level Elements](#4-text-level-elements)
+5. [Text Styling Tags](#5-text-styling-tags)
+6. [Links](#6-links)
+7. [Images](#7-images)
+8. [Buttons](#8-buttons)
+9. [Comments](#9-comments)
+10. [Lists](#10-lists)
+11. [Tables](#11-tables)
+12. [Iframes](#12-iframes)
+13. [The Head Section](#13-the-head-section)
+14. [Container Elements](#14-container-elements)
+15. [Forms](#15-forms)
+16. [Video](#16-video)
+17. [Audio](#17-audio)
+18. [Embedding Google Maps](#18-embedding-google-maps)
+19. [HTML Entities](#19-html-entities)
+20. [Accessibility Basics](#20-accessibility-basics)
+21. [Quick Reference Cheat Sheet](#21-quick-reference-cheat-sheet)
+
+---
+
+## 1. What HTML Is
+
+**HTML (HyperText Markup Language)** is the standard markup language used to structure content on the web. It doesn't describe how a page *looks* (that's CSS's job) or how it *behaves* (that's JavaScript's job) — it describes what content *is*: a heading, a paragraph, a list, an image, a form, and so on.
+
+A web page is built from HTML **elements** that nest inside one another to form a tree-like structure, often called the **DOM (Document Object Model)** once the browser parses it.
+
+---
+
+## 2. HTML Elements
 
 There are two types of HTML elements:
 
-1. **Pair Element:** `<tagname> content </tagname>`
-2. **Empty Element:** `<tagname />` or `<tagname>`
+| Type | Syntax | Notes |
+|---|---|---|
+| **Pair (container) element** | `<tagname>content</tagname>` | Has an opening and closing tag; wraps content |
+| **Empty (void) element** | `<tagname>` or `<tagname />` | Self-closing; has no content or closing tag (e.g. `<br>`, `<img>`, `<hr>`, `<input>`) |
 
-### Main Elements
+Elements can also have **attributes**, which provide additional information and always live in the opening tag:
 
-Elements that must be added in any HTML file:
+```html
+<a href="https://example.com" target="_blank">Visit site</a>
+```
 
-1. `<html></html>`: Holds all HTML page elements.
-2. `<head></head>`: Contains the page title and metadata.
-3. `<body></body>`: Contains all HTML elements that describe the content.
+Here, `href` and `target` are attributes of the `<a>` element.
 
-### Nesting in HTML
+---
 
-Nesting means putting an element inside another element. The main elements are nested like this:
+## 3. Document Structure
+
+### 3.1 Main Elements
+
+Every HTML document needs three core elements:
+
+1. **`<html></html>`** — The root element; holds all other HTML content.
+2. **`<head></head>`** — Contains metadata: title, character set, linked stylesheets/scripts, SEO tags. Nothing inside `<head>` is displayed directly on the page.
+3. **`<body></body>`** — Contains all visible content: text, images, links, forms, etc.
+
+### 3.2 Nesting
+
+Nesting means placing one element inside another. This is how the main skeleton looks:
 
 ```html
 <html lang="en">
@@ -34,25 +79,26 @@ Nesting means putting an element inside another element. The main elements are n
 </html>
 ```
 
-### DOCTYPE Declaration
+The `lang` attribute tells browsers and screen readers what language the page is written in, which helps with accessibility, translation tools, and search engines.
 
-Use `<!DOCTYPE html>` at the first line to let the browser know the HTML version is 5.
+### 3.3 DOCTYPE Declaration
 
-Example:
+`<!DOCTYPE html>` must be the very first line of an HTML file. It tells the browser to render the page using the modern HTML5 standard rather than an older or "quirks" mode.
 
 ```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head></head>
   <body></body>
 </html>
 ```
 
-### Title Element
+### 3.4 The Title Element
 
-`<title>title here</title>` defines a title in the browser tab, provides a title for the page when it is added to favorites, and displays a title for the page in search engine results.
-
-Example:
+`<title>` sets the text that appears:
+- In the **browser tab**
+- As the default name when a page is **bookmarked**
+- As the **clickable headline** in search engine results
 
 ```html
 <head>
@@ -60,185 +106,178 @@ Example:
 </head>
 ```
 
-### Heading Elements
+> **Tip:** Keep titles under ~60 characters so they don't get cut off in search results.
 
-Use `<h1>` to `<h6>` for headings, with `<h1>` being the most important.
+### 3.5 Heading Elements
 
-Example:
+`<h1>` through `<h6>` define headings, with `<h1>` being the highest level of importance and `<h6>` the lowest.
 
 ```html
-<body>
-  <h1>heading1</h1>
-  <h2>heading2</h2>
-  <h3>heading3</h3>
-  <h4>heading4</h4>
-  <h5>heading5</h5>
-  <h6>heading6</h6>
-</body>
+<h1>Heading 1</h1>
+<h2>Heading 2</h2>
+<h3>Heading 3</h3>
+<h4>Heading 4</h4>
+<h5>Heading 5</h5>
+<h6>Heading 6</h6>
 ```
 
-### Paragraph Element
+> **Best practice:** Use only **one `<h1>` per page** and keep headings in logical order (don't skip from `<h1>` to `<h4>`) — this matters both for SEO and for screen-reader navigation.
 
-`<p>paragraph here</p>` is used to add a paragraph.
+---
 
-Example:
+## 4. Text-Level Elements
+
+### 4.1 Paragraph
+
+`<p>` defines a block of text as a paragraph.
 
 ```html
 <p>
   Web design is the process of creating visually appealing and functional websites.
   It involves layout, color scheme, graphics, fonts, and content.
-  Effective web design ensures a user-friendly experience,
-  enhances brand recognition, and boosts engagement.
-  It combines aesthetics with usability to create an impactful online presence.
 </p>
 ```
 
-### Break Line Element
+### 4.2 Line Break
 
-`<br>` is used to add a break line anywhere in the document.
-
-Example:
+`<br>` forces a line break within text, without starting a new paragraph.
 
 ```html
-<p>this is paragraph, <br> this is paragraph</p>
+<p>This is a line, <br> and this continues on a new line.</p>
 ```
 
-### Horizontal Rule Element
+### 4.3 Horizontal Rule
 
-`<hr>` is used to add a horizontal rule between elements.
-
-Example:
+`<hr>` draws a horizontal divider line, typically used to separate sections of content.
 
 ```html
-<p>This is a paragraph, this is paragraph</p>
+<p>First section text.</p>
 <hr>
-<p>This is a paragraph, this is paragraph</p>
+<p>Second section text.</p>
 ```
 
-### Preformatted Text Element
+### 4.4 Preformatted Text
 
-`<pre>` is used to add text without removing white spaces.
-
-Example:
+`<pre>` preserves whitespace and line breaks exactly as written in the source code — useful for displaying code, ASCII art, or anything where spacing matters.
 
 ```html
-<p>This is a paragraph, this is a paragraph</p>
-<pre>This is a paragraph, this is a paragraph</pre>
+<pre>
+This    text
+    keeps its   spacing.
+</pre>
 ```
 
-### **HTML `<code>` Tag**
+### 4.5 The `<code>` Element
 
-- **Definition:** The `<code>` tag is used to display a fragment of computer code in a web page.
-- **Appearance:** By default, text inside `<code>` is shown in a **monospace font**.
-- **Best Practice:** Often wrapped inside `<pre>` to preserve formatting like spaces and line breaks.
+- Displays a fragment of computer code, typically rendered in a **monospace font**.
+- Often nested inside `<pre>` to preserve indentation and line breaks for multi-line snippets.
 
----
-
-### **Examples**
-
-1. **Inline Code Example**
+**Inline example:**
 
 ```html
 <p>To print in Java use: <code>System.out.println("Hello World");</code></p>
 ```
 
-**Result:**
-
-To print in Java use: `System.out.println("Hello World");`
-
----
-
-1. **Block Code Example with `<pre>`**
+**Block example (with `<pre>`):**
 
 ```html
-<pre>
-<code>
-for (int i = 0; i < 5; i++) {
+<pre><code>for (int i = 0; i < 5; i++) {
     System.out.println(i);
-}
-</code>
-</pre>
+}</code></pre>
 ```
 
-**Result:**
+### 4.6 Quotations and Citations
 
-```
-for (int i = 0; i < 5; i++) {
-    System.out.println(i);
-}
-```
-
-### **Quotations & Citations Tags**
-
-- `<q>` → short inline quotation (adds quotation marks automatically)
-- `<blockquote>` → long quotation (usually indented)
-
-**Example:**
+| Tag | Purpose |
+|---|---|
+| `<q>` | Short **inline** quotation (browsers add quotation marks automatically) |
+| `<blockquote>` | Long, **block-level** quotation (usually indented) |
+| `<cite>` | References the *title* of a creative work (a book, article, etc.) |
 
 ```html
 <p>Einstein once said: <q>Imagination is more important than knowledge.</q></p>
 
-<blockquote>
-  "The greatest glory in living lies not in never falling, but in rising every time we fall."
-  – Nelson Mandela
+<blockquote cite="https://example.com/source">
+  The greatest glory in living lies not in never falling, but in rising every time we fall.
+  <footer>— <cite>Nelson Mandela</cite></footer>
 </blockquote>
 ```
 
-### **Word Breaks**
+### 4.7 Word Breaks
 
-- `<wbr>` → word break opportunity (used in long words/links to allow line breaks without inserting visible characters)
-
-**Example:**
+`<wbr>` marks a point where the browser *may* break a long word or URL onto a new line if needed — without inserting a visible hyphen or character.
 
 ```html
 <p>
-  Visit our website at:
-  www.verylongdomainname<wbr>.com/withaverylongpath<wbr>/andaverylongfile.html
+  Visit: www.verylongdomainname<wbr>.com/withaverylongpath<wbr>/andaverylongfile.html
 </p>
 ```
 
-### **Bi-Directional Text**
+### 4.8 Bi-Directional Text
 
-- `<bdi>` → *Bi-Directional Isolation* → isolates a span of text that might have a different text direction from the surrounding text
-
-**Example:**
+`<bdi>` (**Bi-Directional Isolation**) isolates a span of text so its directionality (e.g. right-to-left languages like Arabic) doesn't affect the layout of surrounding text.
 
 ```html
 <ul>
-  <li>User: <bdi>إيمان</bdi> – Score: 90</li>
-  <li>User: <bdi>John</bdi> – Score: 85</li>
+  <li>User: <bdi>إيمان</bdi> — Score: 90</li>
+  <li>User: <bdi>John</bdi> — Score: 85</li>
 </ul>
 ```
 
-## HTML Styling Tags
+A related attribute, `dir="rtl"` or `dir="ltr"`, can also be set directly on any element to control text direction explicitly.
 
-1. `<b>`, `<strong>`: **Bold text**
-2. `<i>`, `<em>`: *Italic text*
-3. `<small>`: Smaller font size
-4. `<del>`: ~~Line-through text~~
-5. `<ins>`: <ins>Underlined text</ins>
-6. `<sub>`: Subscript text
-7. `<sup>`: Superscript text
-8. `<mark>`: <mark>Highlighted text</mark>
-9. `<u>`: <u>Underlined text</u>
+### 4.9 Abbreviations and Definitions
 
-## Links
+Two useful semantic tags that are often overlooked:
+
+- `<abbr title="full text">ABC</abbr>` — marks an abbreviation/acronym; the `title` shows a tooltip with the full meaning on hover.
+- `<dfn>term</dfn>` — marks the defining instance of a term.
 
 ```html
-<a> is used to add a link to a page.
-Use the `href` attribute to specify the URL and the `target` attribute to open the link in a new tab.
+<p><abbr title="Hypertext Markup Language">HTML</abbr> is the standard markup language for web pages.</p>
 ```
 
-Example:
+---
+
+## 5. Text Styling Tags
+
+| Tag | Effect | Example |
+|---|---|---|
+| `<b>` | Bold (no extra semantic meaning) | **Bold text** |
+| `<strong>` | Bold **and** indicates strong importance | **Important text** |
+| `<i>` | Italic (no extra semantic meaning) | *Italic text* |
+| `<em>` | Italic **and** indicates emphasis | *Emphasized text* |
+| `<small>` | Renders text in a smaller font | Fine print |
+| `<del>` | Strikethrough — marks deleted text | ~~removed text~~ |
+| `<ins>` | Underline — marks inserted text | inserted text |
+| `<sub>` | Subscript | H₂O |
+| `<sup>` | Superscript | x² |
+| `<mark>` | Highlighted background | highlighted text |
+| `<u>` | Underlined text (use sparingly — can be mistaken for a link) | underlined text |
+
+> **Semantic tip:** Prefer `<strong>`/`<em>` over `<b>`/`<i>` when the emphasis is meaningful, not just visual — screen readers announce them differently.
+
+---
+
+## 6. Links
+
+The `<a>` (anchor) element creates a hyperlink.
+
+**Key attributes:**
+- `href` — the destination URL
+- `target="_blank"` — opens the link in a new tab
+- `title` — tooltip text shown on hover
+- `rel="noopener noreferrer"` — recommended security practice when using `target="_blank"`, to prevent the new page from accessing the original page via `window.opener`
 
 ```html
-<a href="https://www.google.com" title="Go to Google">click here</a>
-<a href="https://www.google.com" target="_blank">click here</a>
+<a href="https://www.google.com" title="Go to Google">Click here</a>
+<a href="https://www.google.com" target="_blank" rel="noopener noreferrer">Open in new tab</a>
 <a href="mailto:info@example.com" title="Send Email">Email Us</a>
+<a href="tel:+201234567890">Call Us</a>
 <a href="#contact">Go to Contact Section</a>
 ```
 
-Example section with id:
+**Linking to a section on the same page** requires a matching `id`:
 
 ```html
 <section id="contact">
@@ -247,116 +286,105 @@ Example section with id:
 </section>
 ```
 
-## Images
+---
 
-`<img src="" alt="" />` is used to insert an image.
+## 7. Images
 
-Example:
-
-```html
-<img src="1.jpg" alt="this image about tourism">
-```
-
-Specify the correct path if the image is not next to the HTML file.
-
-Example:
+`<img>` is a void (self-closing) element used to insert an image.
 
 ```html
-<img src="images/1.jpg" alt="this image about tourism">
+<img src="1.jpg" alt="A photo of a tourist landmark" width="600" height="400">
 ```
 
-## Buttons
-
-`<button>` is used to add a button.
-
-Example:
+**Key attributes:**
+- `src` — path or URL to the image file
+- `alt` — **required for accessibility**: describes the image for screen readers and displays if the image fails to load
+- `width` / `height` — reserve space for the image before it loads, preventing layout shift
+- `loading="lazy"` — defers loading off-screen images until the user scrolls near them, improving page performance
 
 ```html
-<button>click here</button>
+<img src="images/1.jpg" alt="Aerial view of the tourist site" loading="lazy">
 ```
 
-## HTML Comments
+For responsive images that adapt to screen size, `<picture>` and the `srcset` attribute can serve different image files depending on device width — useful for performance on mobile devices.
 
-HTML comments are not displayed in the browser, so if you type code inside it, it will not be displayed.
+---
 
-Example:
+## 8. Buttons
+
+`<button>` creates a clickable button. It supports a `type` attribute:
+
+```html
+<button type="button">Click here</button>
+<button type="submit">Submit Form</button>
+<button type="reset">Reset Form</button>
+```
+
+If no `type` is specified inside a `<form>`, it defaults to `"submit"` — a common source of bugs when a button is meant only to trigger JavaScript.
+
+---
+
+## 9. Comments
+
+HTML comments are not rendered in the browser and are useful for leaving notes or temporarily disabling code.
 
 ```html
 <!-- <h1>Welcome</h1> -->
-```
-
-Comments can be used as reminders in your HTML code.
-
-Example:
-
-```html
 <p>Welcome</p>
-<!-- Remember to do something -->
+<!-- Remember to update this section later -->
 ```
 
-## Importance of Comments
+Comments improve code readability and make collaboration and maintenance easier, especially in larger projects.
 
-Comments are very important for understanding and maintaining the code.
+---
 
-## HTML Lists
+## 10. Lists
 
-There are three types of lists in HTML:
+HTML supports three list types:
 
-1. Unordered list (with bullets)
-2. Ordered list
-3. Description list
+### 10.1 Unordered Lists
 
-### Unordered Lists
-
-- Use `<ul></ul>` to start a new unordered list.
-- Use `<li></li>` inside `<ul>` for each list item.
-Example:
+Bulleted lists using `<ul>` and `<li>`:
 
 ```html
 <ul>
-  <li>text1</li>
-  <li>text2</li>
-  <li>text3</li>
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
 </ul>
 ```
 
-- Use the `type` attribute to change the type of bullets.
-Example:
+The `type` attribute (legacy — prefer the CSS `list-style-type` property) changes the bullet style:
 
 ```html
 <ul type="square">
-  <li>text1</li>
-  <li>text2</li>
-  <li>text3</li>
+  <li>Item 1</li>
+  <li>Item 2</li>
 </ul>
 ```
 
-### Ordered Lists
+### 10.2 Ordered Lists
 
-- Use `<ol></ol>` to start a new ordered list.
-- Use `<li></li>` inside `<ol>` for each list item.
-Example:
+Numbered lists using `<ol>` and `<li>`:
 
 ```html
 <ol>
-  <li>one</li>
-  <li>two</li>
-  <li>three</li>
+  <li>Step one</li>
+  <li>Step two</li>
+  <li>Step three</li>
 </ol>
 ```
 
-- Use the `type` attribute to change the type of numbers.
-Example:
+The `type` attribute changes the numbering style (`1`, `a`, `A`, `i`, `I`):
 
 ```html
 <ol type="a">
-  <li>one</li>
-  <li>two</li>
-  <li>three</li>
+  <li>Item one</li>
+  <li>Item two</li>
 </ol>
 ```
 
-### Ordered Lists with `start` and `reversed`
+The `start` and `reversed` attributes control the starting number and count direction:
 
 ```html
 <ol start="5">
@@ -371,25 +399,22 @@ Example:
 </ol>
 ```
 
-### Description Lists
+### 10.3 Description Lists
 
-- Use `<dl></dl>` to start a new description list.
-- Use `<dt></dt>` for terms and `<dd></dd>` for descriptions.
-Example:
+Used for term/definition pairs (glossaries, metadata, FAQs):
 
 ```html
 <dl>
-  <dt>term1</dt>
-  <dd>- description 1</dd>
-  <dt>term2</dt>
-  <dd>- description 2</dd>
+  <dt>HTML</dt>
+  <dd>Markup language for structuring web content.</dd>
+  <dt>CSS</dt>
+  <dd>Stylesheet language used to style HTML content.</dd>
 </dl>
 ```
 
-### Nested Lists
+### 10.4 Nested Lists
 
-- Lists can be nested within each other.
-Example:
+Lists can be nested inside one another:
 
 ```html
 <ol type="a">
@@ -405,27 +430,34 @@ Example:
 </ol>
 ```
 
-## HTML Tables
+---
 
-- Use `<table></table>` to start a new table.
-- Use `<tr></tr>` to create a new row.
-- Use `<td></td>` for table data and `<th></th>` for table headings.
-Example:
+## 11. Tables
+
+Tables display tabular (row/column) data.
+
+**Core elements:**
+- `<table>` — starts the table
+- `<tr>` — table row
+- `<th>` — header cell (bold, centered by default)
+- `<td>` — standard data cell
 
 ```html
 <table border="1">
   <tr>
-    <th>name</th>
-    <th>email</th>
+    <th>Name</th>
+    <th>Email</th>
   </tr>
   <tr>
-    <td>ahmed</td>
+    <td>Ahmed</td>
     <td>ahmed@gmail.com</td>
   </tr>
 </table>
 ```
 
-Example with `<caption>` and `<tfoot>`:
+### 11.1 Structured Tables
+
+`<thead>`, `<tbody>`, and `<tfoot>` group rows semantically, and `<caption>` provides an accessible table title:
 
 ```html
 <table border="1">
@@ -456,89 +488,109 @@ Example with `<caption>` and `<tfoot>`:
     </tr>
   </tfoot>
 </table>
-
 ```
 
-### Advanced Table Features
+### 11.2 Merging Cells
 
-- Use `<thead>` and `<tbody>` to structure the table.
-- Use `colspan` and `rowspan` attributes to merge cells.
-Example:
+`colspan` merges cells horizontally; `rowspan` merges cells vertically.
 
 ```html
 <table border="1">
   <thead>
     <tr>
-      <th>name</th>
-      <th colspan="2">number</th>
+      <th>Name</th>
+      <th colspan="2">Phone Numbers</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>ali</td>
-      <td>011111111111</td>
-      <td>011111111122</td>
+      <td>Ali</td>
+      <td>011-1111-1111</td>
+      <td>011-1111-2222</td>
     </tr>
   </tbody>
 </table>
 ```
 
-## HTML Iframes
+> **Accessibility note:** Add `scope="col"` or `scope="row"` to `<th>` elements in complex tables so screen readers can correctly associate headers with data cells.
 
-- Use `<iframe>` to embed another document within the current HTML document.
-Example:
+---
+
+## 12. Iframes
+
+`<iframe>` embeds another HTML document within the current page (commonly used for maps, videos, or third-party widgets).
 
 ```html
-<iframe src="index2.html"></iframe>
+<iframe src="index2.html" width="600" height="400" title="Embedded page"></iframe>
 ```
 
-## The Head Section
+> **Security tip:** Only embed trusted sources — iframes can be used maliciously. Consider the `sandbox` attribute to restrict what an embedded page can do.
 
-The head includes:
+---
 
-1. `<title>`
-2. Metadata (`<meta>`)
-3. `<style>` element for CSS
-4. `<script>` element for JavaScript
-5. `<link>` tag for external resources
-Example:
+## 13. The Head Section
+
+The `<head>` can include:
+
+1. `<title>` — page/browser tab title
+2. `<meta>` — metadata: character encoding, description, keywords, viewport settings
+3. `<style>` — internal CSS
+4. `<script>` — internal or external JavaScript
+5. `<link>` — external resources such as stylesheets or favicons
 
 ```html
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A short summary of the page for search engines.">
   <meta name="keywords" content="HTML, CSS, XML, JavaScript">
   <meta name="author" content="John Doe">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <title>Document</title>
 </head>
 ```
 
-## HTML Container Elements
+**Notable additions:**
+- `charset="UTF-8"` — ensures special characters (accents, non-Latin scripts, emoji) render correctly.
+- `viewport` meta tag — essential for responsive design; without it, mobile browsers render the page at desktop width and zoom out.
+- `meta name="description"` — the snippet often shown under a page's title in search results.
 
-Common container elements:
+---
 
-1. `<section>` – Defines a thematic grouping of content.
-2. `<div>` – Block-level container for grouping elements.
-3. `<article>` – Represents self-contained content (e.g., blog post, news).
-4. `<span>` – Inline container for styling parts of text or elements.
-- Example:
+## 14. Container Elements
+
+### 14.1 Generic Containers
+
+| Tag | Purpose |
+|---|---|
+| `<div>` | Block-level generic container, used for grouping and styling |
+| `<span>` | Inline generic container, used for styling parts of text |
+| `<section>` | Groups content thematically (usually with its own heading) |
+| `<article>` | Self-contained, independently distributable content (blog post, news story, forum post) |
 
 ```html
 <div>
-  <h2>This is a div container</h2>
-  <p>Used for grouping elements.</p>
+  <h2>Grouped Content</h2>
+  <p>Used for grouping elements together.</p>
 </div>
 
 <span>This is an inline container.</span>
 ```
 
-- **Semantic Containers**
-1. `<header>` – Represents the header of a page or section.
-2. `<nav>` – Contains navigation links.
-3. `<aside>` – Sidebar for related info, ads, or secondary content.
-4. `<footer>` – Footer of a page or section.
-5. `<figure>` – Used to group media content (images, diagrams, code snippets, etc.).
-6. `<figcaption>` – Provides a caption or description for a `<figure>`.
+### 14.2 Semantic Layout Containers
+
+These describe the **purpose** of a section rather than being a generic `<div>`, which improves both accessibility and code readability:
+
+| Tag | Purpose |
+|---|---|
+| `<header>` | Introductory content for a page or section (logo, title, nav) |
+| `<nav>` | Navigation links |
+| `<aside>` | Sidebar content — related info, ads, secondary content |
+| `<footer>` | Footer of a page or section (copyright, contact links) |
+| `<main>` | The dominant, unique content of the page (only one per page) |
+| `<figure>` | Groups media (image, diagram, code snippet) with its caption |
+| `<figcaption>` | Caption/description for a `<figure>` |
 
 ```html
 <header>
@@ -554,291 +606,397 @@ Common container elements:
   </ul>
 </nav>
 
-<aside>
-  <h2>Sidebar</h2>
-  <p>Additional info, ads, or related links.</p>
-</aside>
+<main>
+  <article>
+    <h2>Article Title</h2>
+    <p>Article content goes here.</p>
+  </article>
+
+  <aside>
+    <h2>Related Links</h2>
+    <p>Additional info, ads, or related content.</p>
+  </aside>
+</main>
 
 <footer>
   <p>&copy; 2025 My Website. All rights reserved.</p>
 </footer>
 ```
 
-These semantic containers describe the **purpose** of the content instead of just being a generic `div`.
+```html
+<figure>
+  <img src="chart.png" alt="Bar chart of quarterly sales">
+  <figcaption>Fig. 1 — Quarterly sales performance</figcaption>
+</figure>
+```
 
-## **HTML Forms**
+---
 
-- **Purpose**: HTML forms are used to collect user input and send it to a server for processing.
-- **Structure**: Forms start with the `<form>` tag and are closed with the `</form>` tag.
-- **Attributes**: Important attributes include `action` (where to send data) and `method` (how to send data, e.g., GET or POST).
+## 15. HTML Forms
 
-### **Form Elements and Attributes**
+### 15.1 Purpose and Structure
 
-1. **Input Elements (`<input>`)**
-    - Various types of inputs are available, each serving a different purpose:
-        - `type="text"`: Single-line text input.
-        - `type="password"`: Masks user input for sensitive data.
-        - `type="email"`: Validates an email address.
-        - `type="url"`: Validates a URL format
-        - `type="search"`: Used for search fields.
-        - `type="submit"`: Submits the form.
-        - `type="reset"`: Resets form fields.
-        - `type="radio"`: Allows the user to select one option from a group.
-        - `type="checkbox"`: Allows the user to select multiple options.
-        - `type="color"`, `type="date"`, `type="file"`, etc., provide specialized input fields.
-    - Attributes like `name`, `id`, `value`, `placeholder`, and more define the input fields' properties.
-    - `autofocus` automatically sets focus to the specified input field when the page loads.
-2. **Labels (`<label>`)**
-    - `for` attribute connects the label to an input by matching the `id` of the input.
-    - Example: `<label for="user">Username:</label>`
-3. **Select, Option, and Optgroup (`<select>`, `<option>`, `<optgroup>`)**
-    - Used to create dropdown menus.
-    - `<option>` defines an item inside the list.
-    - `<optgroup>` groups related options together for better readability.
-    - Attributes like `multiple` and `size` enhance functionality.
-    - The `selected` attribute pre-selects an option by default.
-    
-    **Example:**
-    
-    ```html
-    <label for="cars">Choose a car:</label>
-    <select id="cars" name="cars" autofocus>
-      <optgroup label="German Cars">
-        <option value="audi">Audi</option>
-        <option value="bmw">BMW</option>
-      </optgroup>
-      <optgroup label="Japanese Cars">
-        <option value="toyota">Toyota</option>
-        <option value="honda">Honda</option>
-      </optgroup>
+Forms collect user input and send it to a server for processing. A form starts with `<form>` and ends with `</form>`.
+
+**Key attributes:**
+- `action` — the URL the form data is sent to
+- `method` — how the data is sent: `GET` (visible in the URL, for non-sensitive data) or `POST` (sent in the request body, for sensitive/large data)
+
+### 15.2 Input Elements
+
+`<input>` is the most versatile form element; its behavior changes entirely based on the `type` attribute:
+
+| Type | Purpose |
+|---|---|
+| `text` | Single-line text |
+| `password` | Masks input for sensitive data |
+| `email` | Validates email format |
+| `url` | Validates URL format |
+| `search` | Styled/optimized for search fields |
+| `number` | Numeric input, often with spinner controls |
+| `tel` | Telephone number (no automatic validation, but triggers numeric keypad on mobile) |
+| `date`, `time`, `datetime-local` | Date/time pickers |
+| `color` | Color picker |
+| `file` | File upload |
+| `range` | Slider control |
+| `radio` | Single choice from a group |
+| `checkbox` | Multiple choice selections |
+| `hidden` | Data submitted but not visible to the user |
+| `submit` | Submits the form |
+| `reset` | Clears form fields |
+
+Common attributes: `name`, `id`, `value`, `placeholder`, `autofocus` (focuses the field on page load).
+
+### 15.3 Labels
+
+`<label>` improves accessibility and usability by linking descriptive text to an input — clicking the label focuses/activates the input.
+
+```html
+<label for="user">Username:</label>
+<input type="text" id="user" name="user">
+```
+
+### 15.4 Select, Option, and Optgroup
+
+Used to build dropdown menus:
+
+```html
+<label for="cars">Choose a car:</label>
+<select id="cars" name="cars" autofocus>
+  <optgroup label="German Cars">
+    <option value="audi">Audi</option>
+    <option value="bmw">BMW</option>
+  </optgroup>
+  <optgroup label="Japanese Cars">
+    <option value="toyota">Toyota</option>
+    <option value="honda" selected>Honda</option>
+  </optgroup>
+</select>
+```
+
+- `multiple` — allows selecting more than one option
+- `size` — number of visible options without scrolling
+- `selected` — pre-selects an option by default
+
+### 15.5 Textarea
+
+Used for multi-line text input:
+
+```html
+<textarea name="message" rows="5" cols="30" placeholder="Type your message..."></textarea>
+```
+
+### 15.6 Datalist
+
+Provides suggestions for an `<input>` while still allowing free typing — unlike `<select>`, which restricts input to the listed options:
+
+```html
+<label for="browser">Choose a browser:</label>
+<input list="browsers" id="browser" name="browser">
+
+<datalist id="browsers">
+  <option value="Chrome">
+  <option value="Firefox">
+  <option value="Safari">
+  <option value="Edge">
+  <option value="Opera">
+</datalist>
+```
+
+### 15.7 Input Restrictions and Validation
+
+| Attribute | Effect |
+|---|---|
+| `required` | Field must be filled before submission |
+| `disabled` | Field is uneditable and not submitted with the form |
+| `readonly` | Field is uneditable but still submitted with the form |
+| `min`, `max` | Numeric/date range limits |
+| `maxlength`, `minlength` | Character length limits |
+| `pattern` | Regex pattern the value must match |
+| `checked` | Default state for checkboxes/radio buttons |
+
+### 15.8 Styling Forms with CSS
+
+**Attribute selectors** target specific input types:
+
+```css
+input[type="text"] {
+  width: 80%;
+  padding: 12px;
+}
+```
+
+**Pseudo-classes** style elements based on state:
+
+- `:focus` — while the element has focus
+- `:checked` — for selected checkboxes/radio buttons
+- `:invalid` / `:valid` — based on validation state
+- `:disabled` — for disabled fields
+
+### 15.9 Complete Form Example
+
+```html
+<section class="register">
+  <h2>Please fill this form</h2>
+  <form action="#" method="post">
+    <label for="first">First Name:</label>
+    <input type="text" id="first" name="first" placeholder="Enter first name" required>
+
+    <label for="last">Last Name:</label>
+    <input type="text" id="last" name="last" placeholder="Enter last name" required>
+
+    <label for="pass">Password:</label>
+    <input type="password" id="pass" name="pass" placeholder="Enter your password" required minlength="8">
+
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email" placeholder="Enter your email" required>
+
+    <label for="date">Birth Date:</label>
+    <input type="date" name="date" id="date">
+
+    <label for="country">Country:</label>
+    <select name="country" id="country">
+      <option value="egypt">Egypt</option>
+      <option value="italy">Italy</option>
+      <option value="england">England</option>
     </select>
-    
-    ```
-    
-4. **Textarea (`<textarea>`)**
-    - For multi-line text input.
-    - Attributes `rows` and `cols` define the visible area size.
-    - Example:
-    
-    ```html
-    <textarea name="message" rows="5" cols="30"></textarea>
-    ```
-    
-5. **Datalist (`<datalist>`)**
-    - Provides a list of predefined options for an `<input>` element.
-    - Works together with the `list` attribute in the `<input>` tag.
-    - Unlike `<select>`, it allows both typing freely and choosing from suggestions.
-    
-    **Example:**
-    
-    ```html
-    <label for="browser">Choose a browser:</label>
-    <input list="browsers" id="browser" name="browser">
-    
-    <datalist id="browsers">
-      <option value="Chrome">
-      <option value="Firefox">
-      <option value="Safari">
-      <option value="Edge">
-      <option value="Opera">
-    </datalist>
-    ```
-    
-    ### **Input Restrictions and Validation**
-    
-    - **`required`**: Ensures the field is filled before form submission.
-    - **`disabled`** and **`readonly`**: Control user interaction with fields.
-    - **`min`, `max`, `maxlength`**: Set limits on user input.
-    - **`checked`**: Sets the default state of checkboxes and radio buttons.
-    
-    ### **Styling Forms with CSS**
-    
-    - **Selectors**: Use attribute selectors to target specific input types.
-        
-        ```css
-        input[type="text"] {
-          width: 80%;
-          padding: 12px;
-        }
-        ```
-        
-    - **Pseudo-classes**: Style elements based on their state.
-        - `:focus`: Applies style when an element is focused.
-        - `:checked`: Styles checkboxes and radio buttons when selected.
-    - **Form Layout**: Use CSS properties like `width`, `height`, `padding`, and `border` to style form elements and layout.
-    
-    ### **Complete Form Example**
-    
-    **HTML:**
-    
-    ```html
-    <section class="register">
-      <h2>Please fill this form</h2>
-      <form action="#" method="post">
-        <label for="first">First Name:</label>
-        <input type="text" id="first" name="first" placeholder="Enter first name" required>
-    
-        <label for="last">Last Name:</label>
-        <input type="text" id="last" name="last" placeholder="Enter last name" required>
-    
-        <label for="pass">Password:</label>
-        <input type="password" id="pass" name="pass" placeholder="Enter your password" required>
-    
-        <label for="email">Email:</label>
-        <input type="email" name="email" id="email" placeholder="Enter your email" required>
-    
-        <label for="date">Birth Date:</label>
-        <input type="date" name="date" id="date">
-    
-        <label for="country">Country:</label>
-        <select name="country" id="country">
-          <option value="egypt">Egypt</option>
-          <option value="italy">Italy</option>
-          <option value="england">England</option>
-        </select>
-    
-        <label>Gender:</label>
-        <label for="male">Male</label>
-        <input type="radio" name="gender" id="male" value="male">
-        <label for="female">Female</label>
-        <input type="radio" name="gender" id="female" value="female">
-    
-        <label>Hobbies:</label>
-        <label for="swimming">Swimming</label>
-        <input type="checkbox" id="swimming" name="hobby" value="swimming">
-        <label for="football">Football</label>
-        <input type="checkbox" id="football" name="hobby" value="football">
-    
-        <textarea name="comment" id="comment" placeholder="Please leave your comment"></textarea>
-    
-        <input type="submit" name="register" value="Register">
-      </form>
-    </section>
-    ```
-    
 
-## HTML Video
+    <fieldset>
+      <legend>Gender:</legend>
+      <label for="male">Male</label>
+      <input type="radio" name="gender" id="male" value="male">
+      <label for="female">Female</label>
+      <input type="radio" name="gender" id="female" value="female">
+    </fieldset>
+
+    <fieldset>
+      <legend>Hobbies:</legend>
+      <label for="swimming">Swimming</label>
+      <input type="checkbox" id="swimming" name="hobby" value="swimming">
+      <label for="football">Football</label>
+      <input type="checkbox" id="football" name="hobby" value="football">
+    </fieldset>
+
+    <label for="comment">Comment:</label>
+    <textarea name="comment" id="comment" placeholder="Please leave your comment"></textarea>
+
+    <input type="submit" name="register" value="Register">
+  </form>
+</section>
+```
+
+> **Added tip:** `<fieldset>` and `<legend>` group related form controls (like a radio button group) and give them an accessible collective label — a small addition that meaningfully improves screen-reader usability.
+
+---
+
+## 16. HTML Video
 
 **Attributes:**
 
-1. `src` → video file URL
-2. `controls` → shows controls
-3. `poster` → placeholder image before playing
-4. `loop` → repeat video
-5. `muted` → no sound by default
-6. `autoplay` → automatically plays the video when the page loads
-
-**Example:**
+| Attribute | Effect |
+|---|---|
+| `src` | Video file URL |
+| `controls` | Displays play/pause/volume controls |
+| `poster` | Placeholder image shown before playback starts |
+| `loop` | Repeats the video automatically |
+| `muted` | Video plays without sound by default |
+| `autoplay` | Plays automatically on page load (most browsers require `muted` for autoplay to work) |
+| `preload` | Hints how much to load in advance: `none`, `metadata`, or `auto` |
 
 ```html
-<video src="vid.mp4" poster="img.png" muted controls loop width="600px" height="500px"></video>
+<video src="vid.mp4" poster="img.png" muted controls loop width="600" height="500">
+  Your browser does not support the video tag.
+</video>
 ```
 
-## **HTML Audio**
+Multiple formats can be provided for broader compatibility using `<source>`:
+
+```html
+<video controls width="600">
+  <source src="vid.mp4" type="video/mp4">
+  <source src="vid.webm" type="video/webm">
+  Your browser does not support the video tag.
+</video>
+```
+
+---
+
+## 17. HTML Audio
 
 **Attributes:**
 
-1. `src` → audio file URL
-2. `controls` → shows controls
-3. `loop` → repeat audio
-4. `muted` → mute sound
-5. `hidden` → hides the audio player from the page
-6. `autoplay` → automatically plays the audio when the page loads
-
-**Example:**
+| Attribute | Effect |
+|---|---|
+| `src` | Audio file URL |
+| `controls` | Displays play/pause/volume controls |
+| `loop` | Repeats the audio automatically |
+| `muted` | Mutes the sound by default |
+| `hidden` | Hides the audio player UI from the page |
+| `autoplay` | Plays automatically on page load |
 
 ```html
-<audio src="mixkit-fast-rocket-whoosh-1714.wav" controls loop></audio>
+<audio src="notification-sound.wav" controls loop></audio>
 ```
 
-## **Embedding Google Maps**
+---
 
-1. Go to **Google Maps**
-2. Click **settings**
-3. Choose **Share and embed map**
-4. Copy **Embed HTML**
-5. Paste into your HTML file
+## 18. Embedding Google Maps
 
-## HTML Entities
+1. Go to **Google Maps** and find the location you want to embed.
+2. Click the **Menu (☰)** or **Share** option.
+3. Choose **"Embed a map"**.
+4. Copy the provided **`<iframe>` HTML code**.
+5. Paste it directly into your HTML file.
 
-- **Definition:** HTML entities are used to display reserved characters or symbols that otherwise would be interpreted as code in HTML.
-- **Syntax:** `&entity_name;` or `&#entity_number;`
-    
-    ### Common Entities
-    
-    1. **Reserved Characters**
-        
-        ```html
-        &lt;   → <
-        &gt;   → >
-        &amp;  → &
-        &quot; → "
-        &apos; → '
-        ```
-        
-        Example:
-        
-        ```html
-        <p>2 &lt; 5 and 5 &gt; 2</p>
-        <p>Use &amp; to represent an ampersand</p>
-        ```
-        
-    2. **Non-Breaking Space**
-        - Use `&nbsp;` for spaces that should not break into a new line.
-        
-        Example:
-        
-        ```html
-        <p>Hello&nbsp;World</p>
-        ```
-        
-    3. **Currency Symbols**
-        
-        ```html
-        &dollar; → $
-        &euro;   → €
-        &pound;  → £
-        &yen;    → ¥
-        ```
-        
-        Example:
-        
-        ```html
-        <p>Price: 100 &dollar;</p>
-        ```
-        
-    4. **Mathematical Symbols**
-        
-        ```html
-        &plus;   → +
-        &minus;  → −
-        &times;  → ×
-        &divide; → ÷
-        ```
-        
-        Example:
-        
-        ```html
-        <p>10 &times; 5 = 50</p>
-        ```
-        
-    5. **Arrows**
-        
-        ```html
-        &larr; → ←
-        &uarr; → ↑
-        &rarr; → →
-        &darr; → ↓
-        ```
-        
-        Example:
-        
-        ```html
-        <p>Click &rarr; Next</p>
-        ```
-        
-        ### Full Reference for HTML Entities
-        
-        For a **complete list** of HTML entities—including ASCII characters, ISO-8859-1 symbols, math symbols, Greek letters, and more—you can consult this helpful resource:
-        
-        - *Complete list of HTML entities with their names and codes: the FreeFormatter HTML Entities page* [freeformatter.com](https://www.freeformatter.com/html-entities.html?utm_source=chatgpt.com)
+```html
+<iframe
+  src="https://www.google.com/maps/embed?..."
+  width="600"
+  height="450"
+  style="border:0;"
+  allowfullscreen=""
+  loading="lazy"
+  title="Google Map location">
+</iframe>
+```
+
+---
+
+## 19. HTML Entities
+
+**Definition:** HTML entities display reserved characters or symbols that would otherwise be interpreted as HTML code (like `<` and `>`), or characters that are hard to type directly.
+
+**Syntax:** `&entity_name;` or `&#entity_number;`
+
+### 19.1 Reserved Characters
+
+| Entity | Renders as |
+|---|---|
+| `&lt;` | < |
+| `&gt;` | > |
+| `&amp;` | & |
+| `&quot;` | " |
+| `&apos;` | ' |
+
+```html
+<p>2 &lt; 5 and 5 &gt; 2</p>
+<p>Use &amp; to represent an ampersand</p>
+```
+
+### 19.2 Non-Breaking Space
+
+`&nbsp;` prevents a line break from occurring at that space:
+
+```html
+<p>Hello&nbsp;World</p>
+```
+
+### 19.3 Currency Symbols
+
+| Entity | Renders as |
+|---|---|
+| `&dollar;` | $ |
+| `&euro;` | € |
+| `&pound;` | £ |
+| `&yen;` | ¥ |
+| `&cent;` | ¢ |
+
+```html
+<p>Price: 100 &dollar;</p>
+```
+
+### 19.4 Mathematical Symbols
+
+| Entity | Renders as |
+|---|---|
+| `&plus;` | + |
+| `&minus;` | − |
+| `&times;` | × |
+| `&divide;` | ÷ |
+| `&ne;` | ≠ |
+| `&le;` | ≤ |
+| `&ge;` | ≥ |
+| `&infin;` | ∞ |
+
+```html
+<p>10 &times; 5 = 50</p>
+```
+
+### 19.5 Arrows
+
+| Entity | Renders as |
+|---|---|
+| `&larr;` | ← |
+| `&uarr;` | ↑ |
+| `&rarr;` | → |
+| `&darr;` | ↓ |
+
+```html
+<p>Click &rarr; Next</p>
+```
+
+### 19.6 Copyright, Trademark, and Miscellaneous
+
+| Entity | Renders as |
+|---|---|
+| `&copy;` | © |
+| `&reg;` | ® |
+| `&trade;` | ™ |
+| `&hellip;` | … |
+| `&mdash;` | — |
+| `&ndash;` | – |
+
+```html
+<p>&copy; 2026 My Company. All rights reserved.</p>
+```
+
+For a complete list of HTML entities — including ASCII, ISO-8859-1, math symbols, and Greek letters — see the [FreeFormatter HTML Entities reference](https://www.freeformatter.com/html-entities.html).
+
+---
+
+## 20. Accessibility Basics
+
+A short addition worth including in any HTML introduction, since accessibility is a core part of writing good markup:
+
+- Always include meaningful `alt` text on images.
+- Use semantic elements (`<nav>`, `<header>`, `<main>`, `<footer>`) instead of generic `<div>`s wherever the meaning fits.
+- Associate every `<input>` with a `<label>`.
+- Maintain a logical heading order (`<h1>` → `<h2>` → `<h3>`, without skipping levels).
+- Add `lang` to the `<html>` tag.
+- Use ARIA attributes (`aria-label`, `aria-hidden`, `role`) only when semantic HTML alone can't express something.
+- Ensure sufficient color contrast (this is technically CSS, but it starts with correct HTML structure).
+
+---
+
+## 21. Quick Reference Cheat Sheet
+
+| Category | Tags |
+|---|---|
+| Structure | `<html>`, `<head>`, `<body>`, `<title>`, `<meta>` |
+| Text | `<h1>`–`<h6>`, `<p>`, `<br>`, `<hr>`, `<pre>`, `<code>`, `<q>`, `<blockquote>` |
+| Styling | `<b>`, `<strong>`, `<i>`, `<em>`, `<mark>`, `<small>`, `<sub>`, `<sup>`, `<del>`, `<ins>`, `<u>` |
+| Links & Media | `<a>`, `<img>`, `<video>`, `<audio>`, `<iframe>` |
+| Lists | `<ul>`, `<ol>`, `<li>`, `<dl>`, `<dt>`, `<dd>` |
+| Tables | `<table>`, `<tr>`, `<th>`, `<td>`, `<thead>`, `<tbody>`, `<tfoot>`, `<caption>` |
+| Containers | `<div>`, `<span>`, `<section>`, `<article>`, `<header>`, `<nav>`, `<aside>`, `<footer>`, `<main>`, `<figure>`, `<figcaption>` |
+| Forms | `<form>`, `<input>`, `<label>`, `<select>`, `<option>`, `<optgroup>`, `<textarea>`, `<datalist>`, `<fieldset>`, `<legend>`, `<button>` |
