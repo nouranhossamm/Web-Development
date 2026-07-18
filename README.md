@@ -1,2 +1,3 @@
-# Web-Development
-A collection of web development notes, cheat sheets, and code snippets 
+# Code-Learning-Hub
+
+A collection of programming notes, cheat sheets, code snippets, and learning resources covering web development, databases, software design, and more.
