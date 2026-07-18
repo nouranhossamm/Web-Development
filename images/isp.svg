@@ -1,0 +1,34 @@
+<svg viewBox="0 0 800 340" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <rect width="800" height="340" fill="#ffffff"/>
+
+  <text x="150" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#c0392b">❌ One Fat Interface</text>
+  <rect x="40" y="55" width="220" height="140" rx="8" fill="#f9d5d3" stroke="#c0392b" stroke-width="2"/>
+  <text x="150" y="78" text-anchor="middle" font-size="13" font-weight="bold" fill="#2c3e50">«interface» Animal</text>
+  <line x1="50" y1="88" x2="250" y2="88" stroke="#c0392b"/>
+  <text x="60" y="108" font-size="12" fill="#2c3e50">eat()</text>
+  <text x="60" y="128" font-size="12" fill="#2c3e50">drink()</text>
+  <text x="60" y="148" font-size="12" fill="#2c3e50">walk()</text>
+  <text x="60" y="168" font-size="12" fill="#c0392b">fly()  ← not all animals fly!</text>
+
+  <text x="150" y="225" text-anchor="middle" font-size="12" fill="#c0392b">Dog forced to implement</text>
+  <text x="150" y="243" text-anchor="middle" font-size="12" fill="#c0392b">fly() it can't perform</text>
+
+  <text x="600" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#27ae60">✅ Segregated Interfaces</text>
+
+  <rect x="470" y="55" width="180" height="105" rx="8" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/>
+  <text x="560" y="78" text-anchor="middle" font-size="13" font-weight="bold" fill="#2c3e50">«interface» Animal</text>
+  <line x1="480" y1="88" x2="640" y2="88" stroke="#27ae60"/>
+  <text x="490" y="108" font-size="12" fill="#2c3e50">eat()</text>
+  <text x="490" y="128" font-size="12" fill="#2c3e50">drink()</text>
+  <text x="490" y="148" font-size="12" fill="#2c3e50">walk()</text>
+
+  <rect x="470" y="190" width="180" height="55" rx="8" fill="#d6eaf8" stroke="#2980b9" stroke-width="2"/>
+  <text x="560" y="212" text-anchor="middle" font-size="13" font-weight="bold" fill="#2c3e50">«interface»</text>
+  <text x="560" y="230" text-anchor="middle" font-size="13" fill="#2c3e50">FlyableAnimal (fly)</text>
+
+  <text x="440" y="285" text-anchor="middle" font-size="12" fill="#27ae60">Dog implements Animal</text>
+  <text x="440" y="303" text-anchor="middle" font-size="12" fill="#27ae60">only</text>
+
+  <text x="680" y="285" text-anchor="middle" font-size="12" fill="#27ae60">Sparrow implements</text>
+  <text x="680" y="303" text-anchor="middle" font-size="12" fill="#27ae60">Animal + FlyableAnimal</text>
+</svg>

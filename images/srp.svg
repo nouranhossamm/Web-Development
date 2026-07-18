@@ -1,0 +1,30 @@
+<svg viewBox="0 0 800 320" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <rect width="800" height="320" fill="#ffffff"/>
+
+  <text x="150" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#c0392b">❌ Violates SRP</text>
+  <rect x="50" y="55" width="200" height="150" rx="8" fill="#f9d5d3" stroke="#c0392b" stroke-width="2"/>
+  <text x="150" y="80" text-anchor="middle" font-size="14" font-weight="bold" fill="#2c3e50">Invoice</text>
+  <line x1="60" y1="90" x2="240" y2="90" stroke="#c0392b"/>
+  <text x="70" y="112" font-size="12" fill="#2c3e50">calculateTotal()</text>
+  <text x="70" y="134" font-size="12" fill="#2c3e50">printInvoice()</text>
+  <text x="70" y="156" font-size="12" fill="#2c3e50">saveToDatabase()</text>
+  <text x="70" y="178" font-size="12" fill="#2c3e50">emailInvoice()</text>
+  <text x="150" y="230" text-anchor="middle" font-size="12" fill="#c0392b">4 reasons to change</text>
+  <text x="150" y="248" text-anchor="middle" font-size="12" fill="#c0392b">= 1 fragile class</text>
+
+  <text x="600" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#27ae60">✅ Follows SRP</text>
+
+  <rect x="500" y="55" width="200" height="45" rx="8" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/>
+  <text x="600" y="82" text-anchor="middle" font-size="13" fill="#2c3e50">Invoice (calculateTotal)</text>
+
+  <rect x="500" y="115" width="200" height="45" rx="8" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/>
+  <text x="600" y="142" text-anchor="middle" font-size="13" fill="#2c3e50">InvoicePrinter (print)</text>
+
+  <rect x="500" y="175" width="200" height="45" rx="8" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/>
+  <text x="600" y="202" text-anchor="middle" font-size="13" fill="#2c3e50">InvoiceRepository (save)</text>
+
+  <rect x="500" y="235" width="200" height="45" rx="8" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/>
+  <text x="600" y="262" text-anchor="middle" font-size="13" fill="#2c3e50">InvoiceMailer (email)</text>
+
+  <text x="600" y="305" text-anchor="middle" font-size="12" fill="#27ae60">one responsibility, one reason to change — each</text>
+</svg>

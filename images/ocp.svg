@@ -1,0 +1,26 @@
+<svg viewBox="0 0 800 320" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <rect width="800" height="320" fill="#ffffff"/>
+
+  <text x="400" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#2c3e50">Open for Extension, Closed for Modification</text>
+
+  <rect x="330" y="60" width="140" height="55" rx="8" fill="#d6eaf8" stroke="#2980b9" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="400" y="93" text-anchor="middle" font-size="13" fill="#2c3e50">«interface» Shape</text>
+
+  <line x1="400" y1="115" x2="400" y2="150" stroke="#2980b9" stroke-width="2"/>
+  <line x1="220" y1="150" x2="580" y2="150" stroke="#2980b9" stroke-width="2"/>
+  <line x1="220" y1="150" x2="220" y2="175" stroke="#2980b9" stroke-width="2"/>
+  <line x1="400" y1="150" x2="400" y2="175" stroke="#2980b9" stroke-width="2"/>
+  <line x1="580" y1="150" x2="580" y2="175" stroke="#2980b9" stroke-width="2"/>
+
+  <rect x="140" y="175" width="160" height="50" rx="8" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/>
+  <text x="220" y="205" text-anchor="middle" font-size="13" fill="#2c3e50">Circle</text>
+
+  <rect x="320" y="175" width="160" height="50" rx="8" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/>
+  <text x="400" y="205" text-anchor="middle" font-size="13" fill="#2c3e50">Square</text>
+
+  <rect x="500" y="175" width="160" height="50" rx="8" fill="#fdebd0" stroke="#e67e22" stroke-width="2" stroke-dasharray="6,3"/>
+  <text x="580" y="205" text-anchor="middle" font-size="13" fill="#2c3e50">Triangle (NEW)</text>
+
+  <text x="400" y="260" text-anchor="middle" font-size="13" fill="#e67e22">Add a new shape by adding a new class —</text>
+  <text x="400" y="280" text-anchor="middle" font-size="13" fill="#e67e22">no existing code (Shape, Circle, Square) is modified</text>
+</svg>

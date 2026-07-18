@@ -1,0 +1,26 @@
+<svg viewBox="0 0 800 320" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <rect width="800" height="320" fill="#ffffff"/>
+  <text x="400" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#2c3e50">Liskov Substitution Principle</text>
+
+  <rect x="320" y="55" width="160" height="50" rx="8" fill="#d6eaf8" stroke="#2980b9" stroke-width="2"/>
+  <text x="400" y="86" text-anchor="middle" font-size="14" fill="#2c3e50">Parent (T)</text>
+
+  <line x1="400" y1="105" x2="400" y2="140" stroke="#2980b9" stroke-width="2"/>
+  <line x1="220" y1="140" x2="580" y2="140" stroke="#2980b9" stroke-width="2"/>
+  <line x1="220" y1="140" x2="220" y2="165" stroke="#2980b9" stroke-width="2"/>
+  <line x1="580" y1="140" x2="580" y2="165" stroke="#2980b9" stroke-width="2"/>
+
+  <rect x="140" y="165" width="160" height="50" rx="8" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/>
+  <text x="220" y="196" text-anchor="middle" font-size="13" fill="#2c3e50">Child (S)</text>
+
+  <rect x="500" y="165" width="160" height="50" rx="8" fill="#f9d5d3" stroke="#c0392b" stroke-width="2"/>
+  <text x="580" y="196" text-anchor="middle" font-size="13" fill="#2c3e50">Child (S)</text>
+
+  <text x="220" y="250" text-anchor="middle" font-size="12" fill="#27ae60">✅ behaves like T</text>
+  <text x="220" y="270" text-anchor="middle" font-size="12" fill="#27ae60">safely substitutable</text>
+
+  <text x="580" y="250" text-anchor="middle" font-size="12" fill="#c0392b">❌ breaks T's contract</text>
+  <text x="580" y="270" text-anchor="middle" font-size="12" fill="#c0392b">(e.g. throws / no-ops)</text>
+
+  <text x="400" y="305" text-anchor="middle" font-size="12" fill="#7f8c8d">Any code using T should work unchanged when given a substitute of type S</text>
+</svg>
